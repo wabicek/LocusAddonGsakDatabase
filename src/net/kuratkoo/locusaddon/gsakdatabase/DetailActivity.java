@@ -74,11 +74,10 @@ public class DetailActivity extends Activity {
 
                 String lastUpdated = c.getString(c.getColumnIndex("LastUserDate"));
                 if (lastUpdated.length() == 10) {
-                    gcData.lastUpdated = lastUpdated.substring(0, 4) + "-" + lastUpdated.substring(4, 6) + "-" + lastUpdated.substring(6, 8) + "T";
+                    gcData.lastUpdated = lastUpdated + "T";
                 }
-                
-                String hidden = c.getString(c.getColumnIndex("PlacedDate"));
-                gcData.hidden = hidden.substring(0, 4) + "-" + hidden.substring(5, 7) + "-" + hidden.substring(7, 9) + "T";
+              
+                gcData.hidden = c.getString(c.getColumnIndex("PlacedDate")) + "T";
 
                 // More!
                 gcData.notes = c.getString(c.getColumnIndex("UserNote"));
@@ -125,8 +124,7 @@ public class DetailActivity extends Activity {
 
                 while (logs.moveToNext()) {
                     PointGeocachingDataLog pgdl = new PointGeocachingDataLog();
-                    String found = logs.getString(logs.getColumnIndex("lDate"));
-                    pgdl.date = found.substring(0, 4) + "-" + found.substring(5, 7) + "-" + found.substring(7, 9) + "T00:00:00Z";
+                    pgdl.date = logs.getString(logs.getColumnIndex("lDate")) + "T00:00:00Z";
                     pgdl.finder = logs.getString(logs.getColumnIndex("lBy"));
                     pgdl.logText = logs.getString(logs.getColumnIndex("lText"));
                     pgdl.type = GsakUtils.convertLogType(logs.getString(logs.getColumnIndex("lType")));
@@ -161,8 +159,6 @@ public class DetailActivity extends Activity {
 
             } catch (Exception e) {
                 Toast.makeText(this, getText(R.string.unable_to_load_detail) + " " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                e.printStackTrace();
-
             } finally {
                 finish();
             }

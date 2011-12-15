@@ -189,11 +189,9 @@ public class LoadActivity extends Activity {
 
                     String lastUpdated = c.getString(c.getColumnIndex("LastUserDate"));
                     if (lastUpdated.length() == 10) {
-                        gcData.lastUpdated = lastUpdated.substring(0, 4) + "-" + lastUpdated.substring(4, 6) + "-" + lastUpdated.substring(6, 8) + "T";
+                        gcData.lastUpdated = lastUpdated + "T";
                     }
-
-                    String hidden = c.getString(c.getColumnIndex("PlacedDate"));
-                    gcData.hidden = hidden.substring(0, 4) + "-" + hidden.substring(4, 6) + "-" + hidden.substring(6, 8) + "T";
+                   gcData.hidden = c.getString(c.getColumnIndex("PlacedDate")) + "T";
 
 
                     c.close();
