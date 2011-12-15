@@ -32,7 +32,7 @@
     <string name="loading">Načítám</string>
     <string name="geocaches">keší</string>
     <string name="loading_dots">Načítám…</string>
-    <string name="load_from_GSAK">Načíst keše z GSAKu</string>
+    <string name="load_from_gsak">Načíst keše z GSAKu</string>
     <string name="error">Chyba!</string>
     <string name="install_it">Aplikace Locus nebyla nalezena! Prosím, nainstalujte ji!</string>
     <string name="update_it">Je požadována novější verze Locusu (>= 1.14.6)! Prosím, aktualizujte!</string>
