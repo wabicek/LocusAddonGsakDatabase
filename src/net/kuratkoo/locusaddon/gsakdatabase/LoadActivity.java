@@ -219,7 +219,7 @@ public class LoadActivity extends Activity {
                         PointGeocachingDataWaypoint pgdw = new PointGeocachingDataWaypoint();
                         pgdw.lat = cc.getDouble(cc.getColumnIndex("kAfterLat"));
                         pgdw.lon = cc.getDouble(cc.getColumnIndex("kAfterLon"));
-                        pgdw.name = PointGeocachingData.CACHE_WAYPOINT_TYPE_FINAL;;
+                        pgdw.name = PointGeocachingData.CACHE_WAYPOINT_TYPE_FINAL;
                         pgdw.type = PointGeocachingData.CACHE_WAYPOINT_TYPE_FINAL;
                         pgdw.code = "FI";
                         pgdws.add(pgdw);
