@@ -47,8 +47,8 @@ public class DetailActivity extends Activity {
                 c.moveToNext();
 
                 Location loc = new Location(TAG);
-                loc.setLatitude(c.getDouble(c.getColumnIndex("LatOriginal")));
-                loc.setLongitude(c.getDouble(c.getColumnIndex("LonOriginal")));
+                loc.setLatitude(c.getDouble(c.getColumnIndex("Latitude")));
+                loc.setLongitude(c.getDouble(c.getColumnIndex("Longitude")));
                 Point p = new Point(c.getString(c.getColumnIndex("Name")), loc);
 
                 PointGeocachingData gcData = new PointGeocachingData();
@@ -66,8 +66,12 @@ public class DetailActivity extends Activity {
                 gcData.archived = GsakUtils.isArchived(c.getString(c.getColumnIndex("Status")));
                 gcData.found = GsakUtils.isFound(c.getInt(c.getColumnIndex("Found")));
                 gcData.premiumOnly = GsakUtils.isPremium(c.getInt(c.getColumnIndex("Found")));
-                gcData.computed = false;
-
+                if (GsakUtils.isCorrected(c.getInt(c.getColumnIndex("Found")))) {
+                    gcData.computed = true;
+                } else {
+                    gcData.computed = false;
+                }
+                
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                 Date date = new Date();
                 gcData.exported = dateFormat.format(date);
@@ -76,7 +80,7 @@ public class DetailActivity extends Activity {
                 if (lastUpdated.length() == 10) {
                     gcData.lastUpdated = lastUpdated + "T";
                 }
-              
+
                 gcData.hidden = c.getString(c.getColumnIndex("PlacedDate")) + "T";
 
                 // More!
@@ -102,18 +106,6 @@ public class DetailActivity extends Activity {
                     pgdws.add(pgdw);
                 }
                 wp.close();
-
-                Cursor cc = database.rawQuery("SELECT * FROM corrected WHERE kCode = ?", new String[]{gcData.cacheID});
-                while (cc.moveToNext()) {
-                    PointGeocachingDataWaypoint pgdw = new PointGeocachingDataWaypoint();
-                    pgdw.lat = cc.getDouble(cc.getColumnIndex("kAfterLat"));
-                    pgdw.lon = cc.getDouble(cc.getColumnIndex("kAfterLon"));
-                    pgdw.name = "Corrected coordinates";
-                    pgdw.type = PointGeocachingData.CACHE_WAYPOINT_TYPE_FINAL;
-                    pgdw.code = "FI";
-                    pgdws.add(pgdw);
-                }
-                cc.close();
 
                 gcData.waypoints = pgdws;
 

@@ -150,4 +150,11 @@ public class GsakUtils {
             return PointGeocachingData.CACHE_LOG_TYPE_UNKNOWN;
         }
     }
+
+    public static boolean isCorrected(int correction) {
+        if (correction == 1) {
+            return true;
+        } else {
+            return false;
+        }    }
 }
