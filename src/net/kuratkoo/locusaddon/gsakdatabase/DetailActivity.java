@@ -39,9 +39,6 @@ public class DetailActivity extends Activity {
         if (intent.hasExtra("cacheId")) {
             String value = intent.getStringExtra("cacheId");
             try {
-
-                byte[] buff = new byte[100000];
-
                 SQLiteDatabase database = SQLiteDatabase.openDatabase(PreferenceManager.getDefaultSharedPreferences(this).getString("db", ""), null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
                 Cursor c = database.rawQuery("SELECT * FROM CachesAll WHERE Code = ?", new String[]{value});
                 c.moveToNext();
