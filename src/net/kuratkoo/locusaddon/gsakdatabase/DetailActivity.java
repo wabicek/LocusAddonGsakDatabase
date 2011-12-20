@@ -66,7 +66,7 @@ public class DetailActivity extends Activity {
                 gcData.archived = GsakUtils.isArchived(c.getString(c.getColumnIndex("Status")));
                 gcData.found = GsakUtils.isFound(c.getInt(c.getColumnIndex("Found")));
                 gcData.premiumOnly = GsakUtils.isPremium(c.getInt(c.getColumnIndex("Found")));
-                if (GsakUtils.isCorrected(c.getInt(c.getColumnIndex("Found")))) {
+                if (GsakUtils.isCorrected(c.getInt(c.getColumnIndex("HasCorrected")))) {
                     gcData.computed = true;
                 } else {
                     gcData.computed = false;
