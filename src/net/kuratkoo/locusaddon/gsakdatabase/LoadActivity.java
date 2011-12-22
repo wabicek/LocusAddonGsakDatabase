@@ -55,7 +55,6 @@ public class LoadActivity extends Activity {
 
             if (ex != null) {
                 Toast.makeText(LoadActivity.this, getString(R.string.unable_to_load_geocaches) + " (" + ex.getLocalizedMessage() + ")", Toast.LENGTH_LONG).show();
-                ex.printStackTrace();
                 LoadActivity.this.finish();
                 return;
             }
@@ -220,7 +219,6 @@ public class LoadActivity extends Activity {
                     p.setGeocachingData(gcData);
                     p.setExtraOnDisplay("net.kuratkoo.locusaddon.gsakdatabase", "net.kuratkoo.locusaddon.gsakdatabase.DetailActivity", "cacheId", gcData.cacheID);
                     pd.addPoint(p);
-
                 }
 
                 database.close();
