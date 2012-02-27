@@ -3,6 +3,10 @@ package net.kuratkoo.locusaddon.gsakdatabase.util;
 import java.io.File;
 import menion.android.locus.addon.publiclib.geoData.PointGeocachingData;
 
+/**
+ * Gsak
+ * @author Radim -kuratkoo- Vaculik <kuratkoo@gmail.com>
+ */
 public class Gsak {
 
     private static final String TAG = "LocusAddonGsakDatabase|GsakUtils";

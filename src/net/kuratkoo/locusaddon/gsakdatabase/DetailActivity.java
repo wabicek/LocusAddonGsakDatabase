@@ -20,6 +20,10 @@ import menion.android.locus.addon.publiclib.geoData.PointGeocachingAttributes;
 import menion.android.locus.addon.publiclib.geoData.PointGeocachingDataLog;
 import menion.android.locus.addon.publiclib.geoData.PointGeocachingDataWaypoint;
 
+/**
+ * DetailActivity
+ * @author Radim -kuratkoo- Vaculik <kuratkoo@gmail.com>
+ */
 public class DetailActivity extends Activity {
 
     private static final String TAG = "LocusAddonGsakDatabase|DetailActivity";

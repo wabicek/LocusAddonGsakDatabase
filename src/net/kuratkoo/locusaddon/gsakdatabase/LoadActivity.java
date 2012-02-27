@@ -30,6 +30,10 @@ import menion.android.locus.addon.publiclib.geoData.PointsData;
 import menion.android.locus.addon.publiclib.geoData.Point;
 import menion.android.locus.addon.publiclib.geoData.PointGeocachingDataWaypoint;
 
+/**
+ * LoadActivity
+ * @authovr Radim -kuratkoo- Vaculik <kuratkoo@gmail.com>
+ */
 public class LoadActivity extends Activity {
 
     private static final String TAG = "LocusAddonGsakDatabase|LoadActivity";
@@ -186,7 +190,7 @@ public class LoadActivity extends Activity {
                     } else {
                         gcData.computed = false;
                     }
-                    
+
 
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                     Date date = new Date();
@@ -196,7 +200,7 @@ public class LoadActivity extends Activity {
                     if (lastUpdated.length() == 10) {
                         gcData.lastUpdated = lastUpdated + "T";
                     }
-                   gcData.hidden = c.getString(c.getColumnIndex("PlacedDate")) + "T";
+                    gcData.hidden = c.getString(c.getColumnIndex("PlacedDate")) + "T";
 
 
                     c.close();

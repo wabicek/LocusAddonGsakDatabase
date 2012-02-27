@@ -15,6 +15,10 @@ import android.text.Spanned;
 import android.widget.Toast;
 import java.io.File;
 
+/**
+ * MainActivity
+ * @author Radim -kuratkoo- Vaculik <kuratkoo@gmail.com>
+ */
 public class MainActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
     private static final String TAG = "LocusAddonGsakDatabase|MainActivity";
