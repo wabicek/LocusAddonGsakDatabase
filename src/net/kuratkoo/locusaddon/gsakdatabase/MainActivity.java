@@ -92,11 +92,11 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
         }
 
         if (key.equals("logs_count")) {
-            String value = sharedPreferences.getString(key, "5");
+            String value = sharedPreferences.getString(key, "20");
             if (value.equals("") || !value.matches("[0-9]+")) {
                 Toast.makeText(this, getString(R.string.pref_logs_error), Toast.LENGTH_LONG).show();
-                value = "5";
-                logsCount.setText("5");
+                value = "20";
+                logsCount.setText(value);
             }
             logsCount.setSummary(editPreferenceSummary(value, getText(R.string.pref_logs_sum)));
         }

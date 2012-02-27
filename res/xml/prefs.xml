@@ -64,7 +64,7 @@
             android:maxLength="2"
             />
         <EditTextPreference
-            android:defaultValue="5"
+            android:defaultValue="20"
             android:title="@string/pref_logs_title"
             android:key="logs_count"
             android:summary="@string/pref_logs_sum"

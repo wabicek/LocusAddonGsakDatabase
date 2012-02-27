@@ -112,7 +112,7 @@ public class DetailActivity extends Activity {
                 gcData.waypoints = pgdws;
 
                 /** Add logs to Geocache **/
-                String limit = PreferenceManager.getDefaultSharedPreferences(this).getString("logs_count", "5");
+                String limit = PreferenceManager.getDefaultSharedPreferences(this).getString("logs_count", "20");
                 Cursor logs = database.rawQuery("SELECT * FROM LogsAll WHERE lParent = ? ORDER BY lDate DESC LIMIT ?", new String[]{gcData.cacheID, limit});
                 ArrayList<PointGeocachingDataLog> pgdls = new ArrayList<PointGeocachingDataLog>();
 
