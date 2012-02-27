@@ -1,5 +1,6 @@
 package net.kuratkoo.locusaddon.gsakdatabase;
 
+import net.kuratkoo.locusaddon.gsakdatabase.util.Gsak;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -52,7 +53,7 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
 
         db = (EditTextPreference) getPreferenceScreen().findPreference("db");
         File fd = new File(db.getText());
-        db.setSummary(editFilePreferenceSummary(GsakUtils.isGsakDatabase(fd), db.getText(), getText(R.string.pref_db_sum)));
+        db.setSummary(editFilePreferenceSummary(Gsak.isGsakDatabase(fd), db.getText(), getText(R.string.pref_db_sum)));
 
         nick = (EditTextPreference) getPreferenceScreen().findPreference("nick");
         nick.setSummary(editPreferenceSummary(nick.getText(), getText(R.string.pref_nick_sum)));
@@ -84,7 +85,7 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
         if (key.equals("db")) {
             String path = sharedPreferences.getString(key, "");
             File fd = new File(path);
-            db.setSummary(editFilePreferenceSummary(GsakUtils.isGsakDatabase(fd), path, getText(R.string.pref_db_sum)));
+            db.setSummary(editFilePreferenceSummary(Gsak.isGsakDatabase(fd), path, getText(R.string.pref_db_sum)));
         }
 
         if (key.equals("nick")) {

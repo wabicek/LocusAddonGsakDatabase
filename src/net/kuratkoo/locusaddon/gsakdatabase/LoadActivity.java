@@ -1,5 +1,6 @@
 package net.kuratkoo.locusaddon.gsakdatabase;
 
+import net.kuratkoo.locusaddon.gsakdatabase.util.Gsak;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -174,13 +175,13 @@ public class LoadActivity extends Activity {
                     gcData.terrain = c.getFloat(c.getColumnIndex("Terrain"));
                     gcData.country = c.getString(c.getColumnIndex("Country"));
                     gcData.state = c.getString(c.getColumnIndex("State"));
-                    gcData.container = GsakUtils.convertContainer(c.getString(c.getColumnIndex("Container")));
-                    gcData.type = GsakUtils.convertCacheType(c.getString(c.getColumnIndex("CacheType")));
-                    gcData.available = GsakUtils.isAvailable(c.getString(c.getColumnIndex("Status")));
-                    gcData.archived = GsakUtils.isArchived(c.getString(c.getColumnIndex("Status")));
-                    gcData.found = GsakUtils.isFound(c.getInt(c.getColumnIndex("Found")));
-                    gcData.premiumOnly = GsakUtils.isPremium(c.getInt(c.getColumnIndex("Found")));
-                    if (GsakUtils.isCorrected(c.getInt(c.getColumnIndex("HasCorrected")))) {
+                    gcData.container = Gsak.convertContainer(c.getString(c.getColumnIndex("Container")));
+                    gcData.type = Gsak.convertCacheType(c.getString(c.getColumnIndex("CacheType")));
+                    gcData.available = Gsak.isAvailable(c.getString(c.getColumnIndex("Status")));
+                    gcData.archived = Gsak.isArchived(c.getString(c.getColumnIndex("Status")));
+                    gcData.found = Gsak.isFound(c.getInt(c.getColumnIndex("Found")));
+                    gcData.premiumOnly = Gsak.isPremium(c.getInt(c.getColumnIndex("Found")));
+                    if (Gsak.isCorrected(c.getInt(c.getColumnIndex("HasCorrected")))) {
                         gcData.computed = true;
                     } else {
                         gcData.computed = false;
@@ -209,7 +210,7 @@ public class LoadActivity extends Activity {
                         pgdw.lat = wp.getDouble(wp.getColumnIndex("cLat"));
                         pgdw.lon = wp.getDouble(wp.getColumnIndex("cLon"));
                         pgdw.name = wp.getString(wp.getColumnIndex("cName"));
-                        pgdw.type = GsakUtils.convertWaypointType(wp.getString(wp.getColumnIndex("cType")));
+                        pgdw.type = Gsak.convertWaypointType(wp.getString(wp.getColumnIndex("cType")));
                         pgdw.description = wp.getString(wp.getColumnIndex("cComment"));
                         pgdw.code = wp.getString(wp.getColumnIndex("cCode"));
                         pgdws.add(pgdw);
@@ -250,7 +251,7 @@ public class LoadActivity extends Activity {
         }
 
         File fd = new File(PreferenceManager.getDefaultSharedPreferences(LoadActivity.this).getString("db", ""));
-        if (!GsakUtils.isGsakDatabase(fd)) {
+        if (!Gsak.isGsakDatabase(fd)) {
             Toast.makeText(LoadActivity.this, R.string.no_db_file, Toast.LENGTH_LONG).show();
             finish();
             return;
