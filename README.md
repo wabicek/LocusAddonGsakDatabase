@@ -23,3 +23,8 @@ https://market.android.com/details?id=net.kuratkoo.locusaddon.gsakdatabase
 ## Autor
 
 Radim -kuratkoo- Vaculik kuratkoo@gmail.com
+
+### Překlad
+
+* **German** - Christoph 'Leedrag' Kuchel
+* **Dutch** - Alexander 'dibrial' Nijborg
