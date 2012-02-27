@@ -10,7 +10,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="LoadActivity" android:label="@string/load_from_gsak" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="orientation">
+        <activity android:name="LoadActivity" android:label="@string/load_from_gsak" android:theme="@style/dialog_theme" android:configChanges="orientation">
             <intent-filter>
                 <action android:name="menion.android.locus.ON_POINT_ACTION" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -20,6 +20,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="DetailActivity" android:exported="true" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:configChanges="orientation" />
+        <activity android:name="DetailActivity" android:exported="true" android:theme="@style/dialog_theme" android:configChanges="orientation" />
     </application>
 </manifest>
