@@ -106,7 +106,7 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
             if (value.equals("") || !value.matches("[0-9]+") || value.equals("0") || value.equals("00")) {
                 Toast.makeText(this, getString(R.string.pref_logs_error), Toast.LENGTH_LONG).show();
                 value = "1";
-                radius.setText("1");
+                radius.setText(value);
             }
             radius.setSummary(editPreferenceSummary(value + " km", getText(R.string.pref_radius_sum)));
         }
