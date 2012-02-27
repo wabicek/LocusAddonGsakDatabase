@@ -1,6 +1,6 @@
 # [Locus](http://www.locusmap.eu/) - addon [GSAK](http://gsak.net) Database
 
-Znáte GSAK? GSAK je program na správu keší, kde můžete upravovat finální waypointy, přídávat poznámky nebo další pomocné body nebo importovat/exportovat keše z/do GSAKu.
+Znáte GSAK? GSAK je program na správu keší, kde můžete upravovat finální waypointy, přidávat poznámky nebo další pomocné body nebo importovat/exportovat keše z/do GSAKu.
 
 Tento doplněk poskytuje propojení mezi GSAKem, kde jsou kešky uloženy, a Locusem, skvělou mapovou aplikací pro Android. Díky tomuto doplňku můžete zobrazovat všechny kešky, co máte v GSAKu, zobrazovat listing a další. A to všechno offline bez připojení k internetu!
 
