@@ -1,7 +1,13 @@
 package net.kuratkoo.locusaddon.gsakdatabase.util;
 
+import android.util.Log;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.regex.MatchResult;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import menion.android.locus.addon.publiclib.geoData.PointGeocachingData;
+import menion.android.locus.addon.publiclib.geoData.PointGeocachingDataTravelBug;
 
 /**
  * Gsak
@@ -160,5 +166,20 @@ public class Gsak {
             return true;
         } else {
             return false;
-        }    }
+        }
+    }
+
+    public static ArrayList<PointGeocachingDataTravelBug> parseTravelBug(String tb) {
+        ArrayList<PointGeocachingDataTravelBug> pgdtbl = new ArrayList<PointGeocachingDataTravelBug>();
+        Pattern p = Pattern.compile("<BR>([^\\(]+)\\(id = ([0-9]+), ref = ([A-Z0-9]+)\\)");
+        Matcher m = p.matcher(tb);
+        while (m.find()) {
+            MatchResult mr = m.toMatchResult();
+            PointGeocachingDataTravelBug pgdtb = new PointGeocachingDataTravelBug();
+            pgdtb.name = mr.group(1);
+            pgdtb.srcDetails = "http://www.geocaching.com/track/details.aspx?tracker=" + mr.group(3);
+            pgdtbl.add(pgdtb);
+        }
+        return pgdtbl;
+    }
 }

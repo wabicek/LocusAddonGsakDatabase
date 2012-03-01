@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Toast;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -73,7 +74,7 @@ public class DetailActivity extends Activity {
                 } else {
                     gcData.computed = false;
                 }
-                
+
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                 Date date = new Date();
                 gcData.exported = dateFormat.format(date);
@@ -91,6 +92,8 @@ public class DetailActivity extends Activity {
                 gcData.shortDescription = c.getString(c.getColumnIndex("ShortDescription"));
                 gcData.longDescription = c.getString(c.getColumnIndex("LongDescription"));
 
+                /** TB & GC **/
+                gcData.travelBugs = Gsak.parseTravelBug(c.getString(c.getColumnIndex("TravelBugs")));
                 c.close();
 
                 /** Add waypoints to Geocache **/

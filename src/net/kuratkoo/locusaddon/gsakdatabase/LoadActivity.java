@@ -29,6 +29,7 @@ import menion.android.locus.addon.publiclib.geoData.PointGeocachingData;
 import menion.android.locus.addon.publiclib.geoData.PointsData;
 import menion.android.locus.addon.publiclib.geoData.Point;
 import menion.android.locus.addon.publiclib.geoData.PointGeocachingDataWaypoint;
+import menion.android.locus.addon.publiclib.utils.RequiredVersionMissingException;
 
 /**
  * LoadActivity
@@ -87,6 +88,7 @@ public class LoadActivity extends Activity {
                     }
                 });
                 ad.show();
+            } catch (RequiredVersionMissingException rvme) {
             }
         }
 
@@ -163,7 +165,7 @@ public class LoadActivity extends Activity {
                     }
                     String gcCode = pair.gcCode;
                     publishProgress(++count);
-                    c = database.rawQuery("SELECT * FROM Caches WHERE Code = ?", new String[]{gcCode});
+                    c = database.rawQuery("SELECT * FROM CachesAll WHERE Code = ?", new String[]{gcCode});
                     c.moveToNext();
                     Location loc = new Location(TAG);
                     loc.setLatitude(c.getDouble(c.getColumnIndex("Latitude")));
@@ -191,7 +193,6 @@ public class LoadActivity extends Activity {
                         gcData.computed = false;
                     }
 
-
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                     Date date = new Date();
                     gcData.exported = dateFormat.format(date);
@@ -201,7 +202,6 @@ public class LoadActivity extends Activity {
                         gcData.lastUpdated = lastUpdated + "T";
                     }
                     gcData.hidden = c.getString(c.getColumnIndex("PlacedDate")) + "T";
-
 
                     c.close();
 
@@ -220,6 +220,7 @@ public class LoadActivity extends Activity {
                         pgdws.add(pgdw);
                     }
                     wp.close();
+                    gcData.waypoints = pgdws;
 
                     p.setGeocachingData(gcData);
                     p.setExtraOnDisplay("net.kuratkoo.locusaddon.gsakdatabase", "net.kuratkoo.locusaddon.gsakdatabase.DetailActivity", "cacheId", gcData.cacheID);
