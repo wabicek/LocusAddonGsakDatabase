@@ -10,10 +10,12 @@ import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.Spanned;
 import android.widget.Toast;
 import java.io.File;
+import menion.android.locus.addon.publiclib.LocusUtils;
 
 /**
  * MainActivity
@@ -22,7 +24,7 @@ import java.io.File;
 public class MainActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
     private static final String TAG = "LocusAddonGsakDatabase|MainActivity";
-    private EditTextPreference db;
+    private Preference dbPick;
     private EditTextPreference nick;
     private EditTextPreference logsCount;
     private EditTextPreference radius;
@@ -43,9 +45,16 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
 
         own = (CheckBoxPreference) getPreferenceScreen().findPreference("own");
 
-        db = (EditTextPreference) getPreferenceScreen().findPreference("db");
-        File fd = new File(db.getText());
-        db.setSummary(editFilePreferenceSummary(Gsak.isGsakDatabase(fd), db.getText(), getText(R.string.pref_db_sum)));
+        dbPick = (Preference) getPreferenceScreen().findPreference("db_pick");
+        dbPick.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+
+            public boolean onPreferenceClick(Preference pref) {
+                LocusUtils.intentPickFile(MainActivity.this, 0, "Pick a file with DB", new String[]{".db3"});
+                return true;
+            }
+        });
+
+        dbPick.setSummary(editPreferenceSummary(PreferenceManager.getDefaultSharedPreferences(this).getString("db", ""), getText(R.string.pref_db_sum)));
 
         nick = (EditTextPreference) getPreferenceScreen().findPreference("nick");
         nick.setSummary(editPreferenceSummary(nick.getText(), getText(R.string.pref_nick_sum)));
@@ -76,8 +85,7 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals("db")) {
             String path = sharedPreferences.getString(key, "");
-            File fd = new File(path);
-            db.setSummary(editFilePreferenceSummary(Gsak.isGsakDatabase(fd), path, getText(R.string.pref_db_sum)));
+            dbPick.setSummary(editPreferenceSummary(path, getText(R.string.pref_db_sum)));
         }
 
         if (key.equals("nick")) {
@@ -133,15 +141,17 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
         }
     }
 
-    private Spanned editFilePreferenceSummary(boolean b, String value, CharSequence summary) {
-        if (!value.equals("")) {
-            if (b) {
-                return Html.fromHtml("<font color=\"#00FF00\"><b>(OK)</b></font> <font color=\"#FF8000\"><b>(" + value + ")</b></font> " + summary);
-            } else {
-                return Html.fromHtml("<font color=\"#FF0000\"><b>(KO)</b></font> <font color=\"#FF8000\"><b>(" + value + ")</b></font> " + summary);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK && data != null) {
+                String filename = data.getData().toString().replace("file://", "");
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("db", filename);
+                editor.commit();
+                dbPick.setSummary(editPreferenceSummary(filename, getText(R.string.pref_db_sum)));
             }
-        } else {
-            return Html.fromHtml(summary.toString());
         }
     }
 }

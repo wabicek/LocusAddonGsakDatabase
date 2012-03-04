@@ -4,6 +4,7 @@
     <string name="pref_path">Nastavení cest</string>
     <string name="pref_db_title">Databáze GSAKu</string>
     <string name="pref_db_sum">Cesta k databázi GSAKu (soubor *.db3)</string>
+    <string name="pref_db_pick_title">Vyberte soubor databáze</string>
     <string name="pref_filter">Nastavení filtru</string>
     <string name="pref_nick_title">Uživatelské jméno na Geocaching.com</string>
     <string name="pref_nick_sum">Pro rozpoznání vlastních keší</string>

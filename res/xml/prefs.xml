@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/app_name">
     <PreferenceCategory android:title="@string/pref_path">
-        <EditTextPreference
-            android:defaultValue="/sdcard/gsak.db3"
+        <Preference
             android:title="@string/pref_db_title"
-            android:key="db"
+            android:key="db_pick"
             android:summary="@string/pref_db_sum"
             />
     </PreferenceCategory>
