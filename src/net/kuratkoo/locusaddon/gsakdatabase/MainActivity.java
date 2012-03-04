@@ -49,7 +49,7 @@ public class MainActivity extends PreferenceActivity implements OnSharedPreferen
         dbPick.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 
             public boolean onPreferenceClick(Preference pref) {
-                LocusUtils.intentPickFile(MainActivity.this, 0, "Pick a file with DB", new String[]{".db3"});
+                LocusUtils.intentPickFile(MainActivity.this, 0, getText(R.string.pref_db_pick_title).toString(), new String[]{".db3"});
                 return true;
             }
         });
