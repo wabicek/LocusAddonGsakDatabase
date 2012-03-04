@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 import menion.android.locus.addon.publiclib.DisplayData;
@@ -30,8 +29,6 @@ public class LocationReceiver extends BroadcastReceiver {
 
     private static final String TAG = "LocusAddonGsakDatabase|LocationReceiver";
     private Context context;
-    private int zoomLevel = 0;
-    private boolean newZoomLevel;
 
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -66,7 +63,6 @@ public class LocationReceiver extends BroadcastReceiver {
 
         @Override
         protected void onPreExecute() {
-            Log.d(TAG, "Start");
             super.onPreExecute();
             db = SQLiteDatabase.openDatabase(PreferenceManager.getDefaultSharedPreferences(context).getString("db", ""), null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
         }
@@ -157,7 +153,6 @@ public class LocationReceiver extends BroadcastReceiver {
                 ArrayList<PointsData> data = new ArrayList<PointsData>();
                 data.add(pd);
                 DisplayData.sendDataFileSilent(context, data, filePath, true);
-                Log.d(TAG, "Stop");
             } catch (RequiredVersionMissingException ex) {
             }
         }
