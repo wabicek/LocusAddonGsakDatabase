@@ -30,6 +30,8 @@
     <string name="pref_locus">Locus settings</string>
     <string name="pref_import_title">Allow import</string>
     <string name="pref_import_sum">Allow import geocaches to Locus</string>
+    <string name="pref_livemap_title">Live map</string>
+    <string name="pref_livemap_sum">Live loading caches to map (enable in Locus: Settings → Other → Enable periodic updates)</string>
     <string name="loading">Loading</string>
     <string name="geocaches">geocaches</string>
     <string name="loading_dots">Loading…</string>

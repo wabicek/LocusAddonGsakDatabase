@@ -21,5 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name="DetailActivity" android:exported="true" android:theme="@style/dialog_theme" android:configChanges="orientation" />
+        <receiver android:name=".receiver.LocationReceiver">
+            <intent-filter>
+                <action android:name="menion.android.locus.PERIODIC_UPDATE" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

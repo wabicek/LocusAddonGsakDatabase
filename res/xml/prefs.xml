@@ -9,6 +9,12 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_locus">
         <CheckBoxPreference
+            android:title="@string/pref_livemap_title"
+            android:defaultValue="false"
+            android:summary="@string/pref_livemap_sum"
+            android:key="livemap"
+            />
+        <CheckBoxPreference
             android:title="@string/pref_import_title"
             android:defaultValue="true"
             android:summary="@string/pref_import_sum"
