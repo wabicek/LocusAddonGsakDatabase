@@ -26,5 +26,5 @@ Radim -kuratkoo- Vaculik kuratkoo@gmail.com
 
 ### Překlad
 
-* **German** - Christoph 'Leedrag' Kuchel
-* **Dutch** - Alexander 'dibrial' Nijborg
+* **German** - Christoph 'Leedrag' Kuchel leedrag@web.de
+* **Dutch** - Alexander 'dibrial' Nijborg anijborg@aol.nl
