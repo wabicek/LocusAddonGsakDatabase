@@ -47,4 +47,7 @@
     <string name="pref_about">Over</string>
     <string name="pref_donate_title">Doneer voor ontwikkeling!</string>
     <string name="pref_donate_sum">Vind u dit een handige add-on? Wilt u verdere ontwikkeling ondersteunen? Klik en doneer wat geld!</string>
+    <string name="support_app">Ondersteuning GSAK Database voor Locus</string>
+    <string name="support_like_it">Hou je van de applicatie GSAK Database voor Locus?</string>
+    <string name="support_rate">Gelieve waarderen de ontwikkelaars het toevoegen van een 5-sterren in de Android Market.</string>
 </resources>
