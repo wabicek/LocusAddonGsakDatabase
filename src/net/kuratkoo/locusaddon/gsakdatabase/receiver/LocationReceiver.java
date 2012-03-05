@@ -39,12 +39,13 @@ public class LocationReceiver extends BroadcastReceiver {
         this.context = context;
 
         PeriodicUpdate pu = PeriodicUpdate.getInstance();
-        pu.setLocNotificationLimit(10.0);
+        pu.setLocNotificationLimit(50.0);
         pu.onReceive(context, intent, new PeriodicUpdate.OnUpdate() {
 
             public void onUpdate(UpdateContainer update) {
                 if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("livemap", false)) {
                     if ((update.newMapCenter || update.newZoomLevel) && update.mapVisible) {
+                        Log.d(TAG, "Live map update");
                         new MapLoadAsyncTask().execute(update);
                     }
                 }
