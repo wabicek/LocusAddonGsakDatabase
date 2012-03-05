@@ -44,10 +44,9 @@ public class LocationReceiver extends BroadcastReceiver {
 
             public void onUpdate(UpdateContainer update) {
                 if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("livemap", false)) {
-                    if (!update.newMapCenter || !update.mapVisible) {
-                        return;
+                    if ((update.newMapCenter || update.newZoomLevel) && update.mapVisible) {
+                        new MapLoadAsyncTask().execute(update);
                     }
-                    new MapLoadAsyncTask().execute(update);
                 }
             }
 
