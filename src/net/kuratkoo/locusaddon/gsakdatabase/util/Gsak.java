@@ -1,8 +1,9 @@
 package net.kuratkoo.locusaddon.gsakdatabase.util;
 
-import android.util.Log;
+import android.content.SharedPreferences;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -181,5 +182,63 @@ public class Gsak {
             pgdtbl.add(pgdtb);
         }
         return pgdtbl;
+    }
+
+    public static List<String> geocacheTypesFromFilter(SharedPreferences sharedPref) {
+        List<String> geocacheTypes = new ArrayList<String>();
+
+        if (sharedPref.getBoolean("gc_type_tradi", false)) {
+            geocacheTypes.add("T");
+        }
+        if (sharedPref.getBoolean("gc_type_multi", false)) {
+            geocacheTypes.add("M");
+        }
+        if (sharedPref.getBoolean("gc_type_mystery", false)) {
+            geocacheTypes.add("U");
+        }
+        if (sharedPref.getBoolean("gc_type_earth", false)) {
+            geocacheTypes.add("R");
+        }
+        if (sharedPref.getBoolean("gc_type_letter", false)) {
+            geocacheTypes.add("B");
+        }
+        if (sharedPref.getBoolean("gc_type_event", false)) {
+            geocacheTypes.add("E");
+        }
+        if (sharedPref.getBoolean("gc_type_cito", false)) {
+            geocacheTypes.add("C");
+        }
+        if (sharedPref.getBoolean("gc_type_mega", false)) {
+            geocacheTypes.add("Z");
+        }
+        if (sharedPref.getBoolean("gc_type_wig", false)) {
+            geocacheTypes.add("I");
+        }
+        if (sharedPref.getBoolean("gc_type_virtual", false)) {
+            geocacheTypes.add("V");
+        }
+        if (sharedPref.getBoolean("gc_type_webcam", false)) {
+            geocacheTypes.add("W");
+        }
+        if (sharedPref.getBoolean("gc_type_loc", false)) {
+            geocacheTypes.add("L");
+        }
+        if (sharedPref.getBoolean("gc_type_hq", false)) {
+            geocacheTypes.add("H");
+        }
+        if (sharedPref.getBoolean("gc_type_gps", false)) {
+            geocacheTypes.add("X");
+        }
+        if (sharedPref.getBoolean("gc_type_10years", false)) {
+            geocacheTypes.add("F");
+        }
+        if (sharedPref.getBoolean("gc_type_benchmark", false)) {
+            geocacheTypes.add("G");
+        }
+        if (sharedPref.getBoolean("gc_type_ape", false)) {
+            geocacheTypes.add("A");
+        }
+
+        return geocacheTypes;
     }
 }

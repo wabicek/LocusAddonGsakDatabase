@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import menion.android.locus.addon.publiclib.DisplayData;
 import menion.android.locus.addon.publiclib.PeriodicUpdate;
 import menion.android.locus.addon.publiclib.PeriodicUpdate.UpdateContainer;
@@ -100,6 +101,22 @@ public class LocationReceiver extends BroadcastReceiver {
                 if (!PreferenceManager.getDefaultSharedPreferences(context).getBoolean("own", false)) {
                     sql = sql + " AND PlacedBy != \"" + PreferenceManager.getDefaultSharedPreferences(context).getString("nick", "") + "\"";
                 }
+
+                List<String> geocacheTypes = Gsak.geocacheTypesFromFilter(PreferenceManager.getDefaultSharedPreferences(context));
+                boolean first = true;
+                String sqlType = "";
+                for (String geocacheType : geocacheTypes) {
+                    if (first) {
+                        sqlType += "CacheType = \"" + geocacheType + "\"";
+                        first = false;
+                    } else {
+                        sqlType += " OR CacheType = \"" + geocacheType + "\"";
+                    }
+                }
+                if (!sqlType.isEmpty()) {
+                    sql += "AND (" + sqlType + ")";
+                }
+
                 sql += " AND CAST(Latitude AS REAL) > ? AND CAST(Latitude AS REAL) < ? AND CAST(Longitude AS REAL) > ? AND CAST(Longitude AS REAL) < ?";
 
                 Cursor c = db.rawQuery(sql, cond);

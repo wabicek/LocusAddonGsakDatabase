@@ -6,6 +6,8 @@
     <string name="pref_db_sum">Cesta k databázi GSAKu (soubor *.db3)</string>
     <string name="pref_db_pick_title">Vyberte soubor databáze</string>
     <string name="pref_filter">Nastavení filtru</string>
+    <string name="pref_type_screen_title">Typy keší</string>
+    <string name="pref_type_screen_sum">Budou filtrovány pouze zatrhlé keše</string>
     <string name="pref_nick_title">Uživatelské jméno na Geocaching.com</string>
     <string name="pref_nick_sum">Pro rozpoznání vlastních keší</string>
     <string name="pref_disable_title">Neaktivní (disable) keše</string>

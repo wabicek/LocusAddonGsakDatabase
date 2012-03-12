@@ -6,6 +6,8 @@
     <string name="pref_db_sum">Path to database GSAK file (*.db3 file)</string>
     <string name="pref_db_pick_title">Pick database file</string>
     <string name="pref_filter">Filter settings</string>
+    <string name="pref_type_screen_title">Geocache type</string>
+    <string name="pref_type_screen_sum">Filter checked types</string>
     <string name="pref_nick_title">Nick on Geocaching.com</string>
     <string name="pref_nick_sum">For recognize own geocaches</string>
     <string name="pref_disable_title">Disable geocaches</string>
@@ -50,4 +52,22 @@
     <string name="support_app">Support GSAK Database for Locus</string>
     <string name="support_like_it">Do you like GSAK Database for Locus app?</string>
     <string name="support_rate">Please appreciate the developers adding a 5-stars in Android Market.</string>
+
+    <string name="pref_type_traditional">Traditional Cache</string>
+    <string name="pref_type_multi">Multi-Cache (Offset Cache)</string>
+    <string name="pref_type_mystery">Mystery or Puzzle Caches</string>
+    <string name="pref_type_earth">EarthCache</string>
+    <string name="pref_type_letter">Letterbox Hybrid</string>
+    <string name="pref_type_event">Event Cache</string>
+    <string name="pref_type_mega">Mega-Event Cache</string>
+    <string name="pref_type_cito">Cache In Trash Out Event</string>
+    <string name="pref_type_wig">Wherigo™ Cache</string>
+    <string name="pref_type_virtual">Virtual Cache</string>
+    <string name="pref_type_webcam">Webcam Cache</string>
+    <string name="pref_type_loc">Locationless (Reverse) Cache</string>
+    <string name="pref_type_hq">Groundspeak Headquarters Cache</string>
+    <string name="pref_type_gps">GPS Adventures Maze Exhibit</string>
+    <string name="pref_type_10years">10 Years! Event Cache</string>
+    <string name="pref_type_benchmark">Benchmark Hunting</string>
+    <string name="pref_type_ape">Project A.P.E. Cache</string>
 </resources>
