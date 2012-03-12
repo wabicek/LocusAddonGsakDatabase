@@ -51,7 +51,7 @@
     <string name="pref_donate_sum">Do you like this addon? Do you want to support next development? Click and donate some money!</string>
     <string name="support_app">Support GSAK Database for Locus</string>
     <string name="support_like_it">Do you like GSAK Database for Locus app?</string>
-    <string name="support_rate">Please appreciate the developers adding a 5-stars in Android Market.</string>
+    <string name="support_rate">Please appreciate the developers adding a 5-stars in Google Play.</string>
 
     <string name="pref_type_traditional">Traditional Cache</string>
     <string name="pref_type_multi">Multi-Cache (Offset Cache)</string>

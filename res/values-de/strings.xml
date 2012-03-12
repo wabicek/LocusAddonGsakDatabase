@@ -49,7 +49,7 @@
     <string name="pref_about">Über</string>
     <string name="pref_donate_title">Spende für die Entwicklung!</string>
     <string name="pref_donate_sum">Gefällt dir dieses Addon? Möchtest du die Entwicklung unterstützen? Dann klicke hier und spende etwas!</string>
-    <string name="support_app">Support GSAK Datenbank für Locus</string>
-    <string name="support_like_it">Mögen Sie die Anwendung GSAK Datenbank für Locus?</string>
-    <string name="support_rate">Bitte schätzen die Entwickler das Hinzufügen eines 5-Sterne im Android Market.</string>
+    <string name="support_app">Unterstütze GSAK Datenbank für Locus</string>
+    <string name="support_like_it">Gefällt dir die  GSAK Datenbank für Locus App?</string>
+    <string name="support_rate">Bitte würdige die Arbeit der Entwickler mit einer 5 Sterne-Bewertung im Google Play.</string>
 </resources>

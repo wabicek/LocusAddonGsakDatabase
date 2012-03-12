@@ -6,6 +6,8 @@
     <string name="pref_db_sum">Pad naar database GSAK bestand (*.db3 bestand)</string>
     <string name="pref_db_pick_title">Selecteer het database bestand</string>
     <string name="pref_filter">Filter </string>
+    <string name="pref_type_screen_title">Geocache type</string>
+    <string name="pref_type_screen_sum">Filter geselecteerde types</string>
     <string name="pref_nick_title">Naam op Geocaching.com</string>
     <string name="pref_nick_sum">Voor het herkennen van eigen caches</string>
     <string name="pref_disable_title">Uitgeschakelde geocaches</string>
@@ -47,7 +49,7 @@
     <string name="pref_about">Over</string>
     <string name="pref_donate_title">Doneer voor ontwikkeling!</string>
     <string name="pref_donate_sum">Vind u dit een handige add-on? Wilt u verdere ontwikkeling ondersteunen? Klik en doneer wat geld!</string>
-    <string name="support_app">Ondersteuning GSAK Database voor Locus</string>
-    <string name="support_like_it">Hou je van de applicatie GSAK Database voor Locus?</string>
-    <string name="support_rate">Gelieve waarderen de ontwikkelaars het toevoegen van een 5-sterren in de Android Market.</string>
+    <string name="support_app">Ondersteun GSAK Database voor Locus</string>
+    <string name="support_like_it">Bevalt GSAK Database voor Locus u goed?</string>
+    <string name="support_rate">Geef de ontwikkelaars een 5-sterren waardering in Google Play.</string>
 </resources>
