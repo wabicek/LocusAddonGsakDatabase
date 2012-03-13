@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,8 @@ public class LocationReceiver extends BroadcastReceiver {
         pu.onReceive(context, intent, new PeriodicUpdate.OnUpdate() {
 
             public void onUpdate(UpdateContainer update) {
-                if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("livemap", false)) {
+                if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean("livemap", false)
+                    && !PreferenceManager.getDefaultSharedPreferences(context).getString("db", "").equals("")) {
                     if ((update.newMapCenter || update.newZoomLevel) && update.mapVisible) {
                         Log.d(TAG, "Live map update");
                         new MapLoadAsyncTask().execute(update);
@@ -60,17 +62,16 @@ public class LocationReceiver extends BroadcastReceiver {
     private class MapLoadAsyncTask extends AsyncTask<UpdateContainer, Integer, Exception> {
 
         private PointsData pd;
-        private SQLiteDatabase db;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            db = SQLiteDatabase.openDatabase(PreferenceManager.getDefaultSharedPreferences(context).getString("db", ""), null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
         }
 
         @Override
         protected Exception doInBackground(UpdateContainer... updateSet) {
             try {
+                SQLiteDatabase db = SQLiteDatabase.openDatabase(PreferenceManager.getDefaultSharedPreferences(context).getString("db", ""), null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
                 UpdateContainer update = updateSet[0];
                 pd = new PointsData("Livemap data");
 
@@ -142,6 +143,7 @@ public class LocationReceiver extends BroadcastReceiver {
                     pd.addPoint(p);
                 }
                 c.close();
+                db.close();
 
             } catch (Exception ex) {
                 return ex;
@@ -155,11 +157,10 @@ public class LocationReceiver extends BroadcastReceiver {
 
             if (exception != null) {
                 Log.w(TAG, exception);
+                Toast.makeText(context, "Error: " + exception.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
 
             try {
-                db.close();
-
                 File externalDir = Environment.getExternalStorageDirectory();
                 String filePath = externalDir.getAbsolutePath();
                 if (!filePath.endsWith("/")) {
