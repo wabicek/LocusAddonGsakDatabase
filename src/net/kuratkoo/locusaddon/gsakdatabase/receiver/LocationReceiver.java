@@ -114,7 +114,7 @@ public class LocationReceiver extends BroadcastReceiver {
                     }
                 }
                 if (!sqlType.isEmpty()) {
-                    sql += "AND (" + sqlType + ")";
+                    sql += " AND (" + sqlType + ")";
                 }
 
                 sql += " AND CAST(Latitude AS REAL) > ? AND CAST(Latitude AS REAL) < ? AND CAST(Longitude AS REAL) > ? AND CAST(Longitude AS REAL) < ?";
