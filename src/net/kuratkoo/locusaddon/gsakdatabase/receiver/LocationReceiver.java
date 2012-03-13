@@ -113,7 +113,7 @@ public class LocationReceiver extends BroadcastReceiver {
                         sqlType += " OR CacheType = \"" + geocacheType + "\"";
                     }
                 }
-                if (!sqlType.isEmpty()) {
+                if (!sqlType.equals("")) {
                     sql += " AND (" + sqlType + ")";
                 }
 
