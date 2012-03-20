@@ -52,6 +52,7 @@
     <string name="support_app">Support GSAK Database for Locus</string>
     <string name="support_like_it">Do you like GSAK Database for Locus app?</string>
     <string name="support_rate">Please appreciate the developers adding a 5-stars in Google Play.</string>
+    <string name="canceled">Loading canceled!</string>
 
     <string name="pref_type_traditional">Traditional Cache</string>
     <string name="pref_type_multi">Multi-Cache (Offset Cache)</string>
