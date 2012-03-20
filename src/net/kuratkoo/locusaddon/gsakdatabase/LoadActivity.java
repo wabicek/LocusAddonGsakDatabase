@@ -270,7 +270,7 @@ public class LoadActivity extends Activity implements DialogInterface.OnDismissL
                 });
                 ad.show();
             } catch (RequiredVersionMissingException rvme) {
-                Toast.makeText(context, "Error: " + rvme.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(LoadActivity.this, "Error: " + rvme.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         }
 
