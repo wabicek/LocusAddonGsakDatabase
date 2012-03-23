@@ -6,9 +6,9 @@ Tento doplněk poskytuje propojení mezi GSAKem, kde jsou kešky uloženy, a Loc
 
 Je to jednoduché – nainstaluj doplněk, nakopíruj databázi na SD kartu, nastav správně cesty a spusť Locus. A jen naimportuj kešky.
 
-## Android Market
+## Google Play
 
-https://market.android.com/details?id=net.kuratkoo.locusaddon.gsakdatabase
+https://play.google.com/store/apps/details?id=net.kuratkoo.locusaddon.gsakdatabase
 
 ## Screenshots
 [![](http://i.imgur.com/wDRbp.png)](http://i.imgur.com/RhLMs.png)
