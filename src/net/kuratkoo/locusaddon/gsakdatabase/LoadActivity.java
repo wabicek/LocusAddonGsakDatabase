@@ -107,10 +107,10 @@ public class LoadActivity extends Activity implements DialogInterface.OnDismissL
                 String sqlType = "";
                 for (String geocacheType : geocacheTypes) {
                     if (first) {
-                        sqlType += "CacheType = \"" + geocacheType + "\"";
+                        sqlType += geocacheType;
                         first = false;
                     } else {
-                        sqlType += " OR CacheType = \"" + geocacheType + "\"";
+                        sqlType += " OR " + geocacheType;
                     }
                 }
                 if (!sqlType.equals("")) {

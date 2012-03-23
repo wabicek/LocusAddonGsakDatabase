@@ -27,6 +27,12 @@
             android:title="@string/pref_type_screen_title"
             android:summary="@string/pref_type_screen_sum">
             <CheckBoxPreference
+                android:title="@string/pref_type_corrected"
+                android:defaultValue="false"
+                android:key="gc_type_corrected"
+                android:icon="@drawable/gc_type_corrected"
+                />
+            <CheckBoxPreference
                 android:title="@string/pref_type_traditional"
                 android:defaultValue="true"
                 android:key="gc_type_tradi"
