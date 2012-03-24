@@ -54,7 +54,7 @@
     <string name="support_rate">Please appreciate the developers adding a 5-stars in Google Play.</string>
     <string name="canceled">Loading canceled!</string>
 
-    <string name="pref_type_corrected">Has Corrected coordinates</string>
+    <string name="pref_type_corrected">Corrected coordinates</string>
     <string name="pref_type_traditional">Traditional Cache</string>
     <string name="pref_type_multi">Multi-Cache (Offset Cache)</string>
     <string name="pref_type_mystery">Mystery or Puzzle Caches</string>
