@@ -99,7 +99,7 @@ public class PointLoader {
                 }
 
                 UpdateContainer update = updateSet[0];
-                pd = new PointsData("Livemap data");
+                pd = new PointsData("GSAK live data");
 
                 String[] cond = new String[]{
                     String.valueOf(update.mapBottomRight.getLatitude()),

@@ -22,8 +22,6 @@ import android.view.View;
 import android.widget.Toast;
 import menion.android.locus.addon.publiclib.LocusUtils;
 
-
-
 /**
  * MainActivity
  * @author Radim -kuratkoo- Vaculik <kuratkoo@gmail.com>
