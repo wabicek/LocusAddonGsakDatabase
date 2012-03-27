@@ -125,6 +125,7 @@ public class LoadActivity extends Activity implements DialogInterface.OnDismissL
                 List<Pair> gcCodes = new ArrayList<Pair>();
                 while (c.moveToNext()) {
                     if (this.isCancelled()) {
+                        c.close();
                         return null;
                     }
                     Location loc = new Location(TAG);
@@ -205,6 +206,7 @@ public class LoadActivity extends Activity implements DialogInterface.OnDismissL
                     Cursor wp = db.rawQuery("SELECT * FROM WayAll WHERE cParent = ?", new String[]{gcData.cacheID});
                     while (wp.moveToNext()) {
                         if (this.isCancelled()) {
+                            wp.close();
                             return null;
                         }
                         PointGeocachingDataWaypoint pgdw = new PointGeocachingDataWaypoint();
