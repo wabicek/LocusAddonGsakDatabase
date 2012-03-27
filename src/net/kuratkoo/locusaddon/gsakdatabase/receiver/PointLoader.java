@@ -149,11 +149,13 @@ public class PointLoader {
                 Cursor c = db.rawQuery(sql, cond);
 
                 if (this.isCancelled()) {
+                    c.close();
                     return null;
                 }
 
                 while (c.moveToNext()) {
                     if (this.isCancelled()) {
+                        c.close();
                         return null;
                     }
                     Location loc = new Location(TAG);
