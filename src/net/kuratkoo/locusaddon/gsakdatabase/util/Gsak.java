@@ -71,6 +71,18 @@ public class Gsak {
             return PointGeocachingData.CACHE_TYPE_PROJECT_APE;
         } else if (type.equals("L")) {
             return PointGeocachingData.CACHE_TYPE_LOCATIONLESS;
+        } else if (type.equals("G")) {
+            return PointGeocachingData.CACHE_TYPE_BENCHMARK; 
+        } else if (type.equals("H")) {
+            return PointGeocachingData.CACHE_TYPE_GROUNDSPEAK;                
+        } else if (type.equals("X")) {
+            return PointGeocachingData.CACHE_TYPE_MAZE_EXHIBIT;     
+        } else if (type.equals("Y")) {
+            return PointGeocachingData.CACHE_TYPE_WAYMARK;             
+        } else if (type.equals("F")) {
+            return PointGeocachingData.CACHE_TYPE_LF_EVENT;                         
+        } else if (type.equals("D")) {
+            return PointGeocachingData.CACHE_TYPE_LF_CELEBRATION;            
         } else {
             return PointGeocachingData.CACHE_TYPE_TRADITIONAL;
         }
