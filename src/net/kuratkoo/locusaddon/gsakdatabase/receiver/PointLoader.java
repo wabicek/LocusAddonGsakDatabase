@@ -203,7 +203,7 @@ public class PointLoader {
 
                 ArrayList<PointsData> data = new ArrayList<PointsData>();
                 data.add(pd);
-                DisplayData.sendDataFileSilent(context, data, filePath, true);
+                DisplayData.sendDataFileSilent(context, data, filePath);
             } catch (RequiredVersionMissingException rvme) {
                 Toast.makeText(context, "Error: " + rvme.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
